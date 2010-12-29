@@ -51,6 +51,18 @@
         }
 
 
+        // Keyboard handlers
+        var cancel = function() {
+          $('#shadow, #player_box').remove();
+          $(document).unbind('keyup.player');
+        }
+        $(document).bind('keyup.player', function(e) {
+          if (e.keyCode == 27) {
+            cancel();
+          }
+        });
+
+
         // The youtube player
         var player = null;
         var player_id = 'playlist_player';
@@ -70,7 +82,8 @@
             'left': 0, 'top': 0,
             'width': '100%', 'height': '100%',
             'z-index': 1000
-          }
+          },
+          onclick: cancel
         });
 
         var $player_box = $('<div />', {
