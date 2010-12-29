@@ -1,5 +1,5 @@
 (function() {
-  var url = "//github.com/zaius/Youtube-Playlist/raw/master/youtube_playlist.min.js"
+  var url = "//github.com/zaius/youtube_playlist/raw/master/youtube_playlist.min.js"
   var script = document.createElement('script');
   script.type = 'text/javascript';
   script.src = url;
