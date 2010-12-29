@@ -43,7 +43,7 @@
         var index = 0;
         var index_inc = function() {
           index++;
-          if (index >= ids.count) index -= ids.length;
+          if (index >= ids.length) index -= ids.length;
         }
         var index_dec = function() {
           index--;
