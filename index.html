@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Youtube Playlist</title>
+
+    <style>
+      body {
+        background-color: white;
+        font-family: 'Trebuchet MS',Helvetica,sans-serif;
+      }
+      h1 {
+        letter-spacing: 3px;
+        padding-left: 10px;
+      }
+      #content {
+        width: 700px;
+        padding-left: 20px;
+      }
+      .main {
+        border-left: solid 8px #A4B74B;
+        border-top-right-radius: 20px;  -moz-border-radius-topright: 20px;  -webkit-border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;  -moz-border-radius-bottomright: 20px;  -webkit-border-bottom-right-radius: 20px;
+        padding: 5px 20px;
+        margin: 40px 20px;
+      }
+
+      #bookmarklet {
+      	background: #eee;
+      	border: 2px solid #888;
+      	padding: 5px 10px;
+        border-radius: 8px;  -moz-border-radius: 8px;  -webkit-border-radius: 8px;
+        text-decoration: none;
+        color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="content">
+      <h1>Youtube Playlist Bookmarklet</h1>
+      <div class="main">
+        <h2>about</h2>
+        Hi! This is a bookmarklet that scans a page for all youtube links, and
+        plays them back-to-back.
+      </div>
+
+      <div class="main">
+        <h2>installing</h2>
+        Simply drag this bookmark to your bookmarks bar:
+
+        <a id="bookmarklet" href="javascript:(function()%7Bvar%20a=document.createElement(%22script%22);a.type=%22text/javascript%22;a.src=%22//github.com/zaius/Youtube-Playlist/raw/master/youtube_playlist.min.js%22;document.getElementsByTagName(%22head%22)[0].appendChild(a)%7D)();"
+        >Play Videos</a>
+      </div>
+
+      <div class="main">
+        <h2>examples</h2>
+        <a href="http://www.reddit.com/r/electrohouse">
+          Here's the page I built it for,
+        </a>
+        but that might not be your cup of tea, so
+        <a href="http://www.reddit.com/r/aww/">
+          here's a page with videos of cute animals.
+        </a>
+
+        <br />
+        Also, here is a bunch of youtube videos, so you can just run it on
+        this page!
+        <ul>
+          <li><a href="http://www.youtube.com/watch?v=_OBlgSz8sSM">Charlie bit my finger</a></li>
+          <li><a href="http://www.youtube.com/watch?v=Q5im0Ssyyus">Charlie the unicorn</a></li>
+          <li><a href="http://www.youtube.com/watch?v=DKk9rv2hUfA">Charlie Brown christmas</a></li>
+          <li><a href="http://www.youtube.com/watch?v=1pireUuRxe8">Charlie's Angels trailer</a></li>
+        </ul>
+      </div>
+
+      <div class="main">
+        <h2>feedback</h2>
+        If you use this, or have any feedback, I'd love to hear from you.
+        Email me at david at kelso dot id dot au. If you know your way around
+        some javascript, you can 
+        <a href="https://github.com/zaius/Youtube-Playlist">
+          find the code here
+        </a>.
+      </div>
+    </div>
+  </body>
+</html>
+
