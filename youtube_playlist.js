@@ -87,7 +87,7 @@
         var $prev_button = $('<a />', {
           href: 'javascript:;',
           text: 'previous',
-          css: { float: 'left' },
+          css: { 'float': 'left' },
           onclick: function() {
             index_dec(); play_current();
           }
@@ -95,7 +95,7 @@
         var $next_button = $('<a />', {
           href: 'javascript:;',
           text: 'next',
-          css: { float: 'right' },
+          css: { 'float': 'right' },
           onclick: function() {
             index_inc(); play_current();
           }
