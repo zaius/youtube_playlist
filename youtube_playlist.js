@@ -1,4 +1,8 @@
 (function() {
+  if (typeof console === "undefined") {
+    console = { log: function() { } };
+  }
+
   // courtesy of jquery
   var getScript = function(url, success) {
     var script = document.createElement('script');
@@ -34,7 +38,7 @@
             replace(/\&.*$/, '');
 
           // Don't allow duplicates
-          if ($.inArray(id, ids) < 0) ids.push(id);
+          if ($.inArray(id, ids) < 0) { ids.push(id); }
         });
         console.log("video ids", ids);
 
@@ -43,19 +47,20 @@
         var index = 0;
         var index_inc = function() {
           index++;
-          if (index >= ids.length) index -= ids.length;
-        }
+          if (index >= ids.length) { index -= ids.length; }
+        };
         var index_dec = function() {
           index--;
-          if (index < 0) index += ids.length;
-        }
+          if (index < 0) { index += ids.length; }
+        };
 
 
         // Keyboard handlers
         var cancel = function() {
           $('#shadow, #player_box').remove();
           $(document).unbind('keyup.player');
-        }
+        };
+
         $(document).bind('keyup.player', function(e) {
           if (e.keyCode == 27) {
             cancel();
@@ -83,7 +88,7 @@
             'width': '100%', 'height': '100%',
             'z-index': 1000
           },
-          onclick: cancel
+          click: cancel
         });
 
         var $player_box = $('<div />', {
@@ -101,7 +106,7 @@
           href: 'javascript:;',
           text: 'previous',
           css: { 'float': 'left' },
-          onclick: function() {
+          click: function() {
             index_dec(); play_current();
           }
         });
@@ -109,7 +114,7 @@
           href: 'javascript:;',
           text: 'next',
           css: { 'float': 'right' },
-          onclick: function() {
+          click: function() {
             index_inc(); play_current();
           }
         });
@@ -120,7 +125,7 @@
 
         // Create the youtube flash player
         var params = { allowScriptAccess: "always" };
-        var url = "http://www.youtube.com/apiplayer?enablejsapi=1&version=3&playerapiid=" + player_id
+        var url = "http://www.youtube.com/apiplayer?enablejsapi=1&version=3&playerapiid=" + player_id;
         swfobject.embedSWF(url, player_id, '320', '240', "9.0.0", null, null, params, {'id': player_id});
 
 
