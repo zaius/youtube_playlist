@@ -138,6 +138,8 @@
         };
         window.playerOnError = function(code) {
           console.log('error', code);
+          index_inc();
+          play_current();
         };
         window.playerStateChanged = function(state) {
           // State code 0 means playback ended
