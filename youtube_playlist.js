@@ -138,7 +138,9 @@
         };
         window.playerOnError = function(code) {
           console.log('error', code);
-          index_inc();
+          // Remove the offending video
+          ids.splice(index, 1);
+          if (index >= ids.length) { index = 0; };
           play_current();
         };
         window.playerStateChanged = function(state) {
