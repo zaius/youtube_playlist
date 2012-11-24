@@ -28,7 +28,10 @@
     $.getScript('https://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js', function() {
       // Video list
       var ids = [];
-      $('a[href^="http://www.youtube"]').each(function() {
+      var url = new RegExp('https?://(www.)?youtube.com/');
+      $('a[href^="http"]').filter(function() {
+        return $(this).attr('href').match(url);
+      }).each(function() {
         var id = this.href.
           replace(/^.*v=/, '').
           replace(/\&.*$/, '');
@@ -121,7 +124,7 @@
 
       // Create the youtube flash player
       var params = { allowScriptAccess: "always" };
-      var url = "http://www.youtube.com/apiplayer?enablejsapi=1&version=3&playerapiid=" + player_id;
+      var url = "//www.youtube.com/apiplayer?enablejsapi=1&version=3&playerapiid=" + player_id;
       swfobject.embedSWF(url, player_id, '320', '240', "9.0.0", null, null, params, {'id': player_id});
 
 
@@ -153,10 +156,11 @@
   // Use the page's jquery if it's on there
   var jquery_valid = false;
 
-  if (jQuery && jQuery.fn && jQuery.fn.jQuery) {
-    var version = jQuery.fn.jQuery.split('.');
+  if (typeof jQuery == 'function' && jQuery.fn && jQuery.fn.jquery) {
+    var version = jQuery.fn.jquery.split('.');
     // Need jquery version greater than 1.3 for object syntax
     if (version.length == 3 && parseInt(version[1]) > 3) {
+      console.log('using in page jquery version ' + jQuery.fn.jquery);
       add_player(jQuery);
       jquery_valid = true;
     }
@@ -166,6 +170,6 @@
     getScript("//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js", function() {
       var jq18 = jQuery.noConflict(true);
       add_player(jq18);
-    }
+    });
   }
 })();
