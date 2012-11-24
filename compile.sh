@@ -1,3 +1,4 @@
 #!/bin/bash
-uglifyjs < bookmarklet.js > bookmarklet.min.js
-uglifyjs < youtube_playlist.js > youtube_playlist.min.js
+coffee -c youtube_playlist.coffee
+uglifyjs -m --stats < bookmarklet.js > bookmarklet.min.js
+uglifyjs -m --stats < youtube_playlist.js > youtube_playlist.min.js
