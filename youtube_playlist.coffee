@@ -1,4 +1,4 @@
-window.console = { log: -> } unless window.console?
+window.console = { log: -> } unless window.console
 
 css =
   shadow:
@@ -44,6 +44,8 @@ getScript = (url, success) ->
 
 
 add_player = ($) ->
+  # Use youtube's iframe embed instead of flash.
+  # https://developers.google.com/youtube/iframe_api_reference
   $.getScript '//www.youtube.com/iframe_api'
 
   # Video list
