@@ -122,13 +122,15 @@ add_player = ($) ->
     css: css.next_button
     click: play_next
 
-  $player_box.append($player).append($prev_button).append $next_button
-  $('body').append($shadow).append $player_box
+  $player_box.append $player
+  $('body').append $shadow
+  $('body').append $player_box
 
 
   # Player events
   player_ready = (event) ->
     console.log 'player ready'
+    $player_box.append($prev_button).append($next_button)
     event.target.playVideo()
 
   player_error = (event) ->
